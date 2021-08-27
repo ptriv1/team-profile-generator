@@ -10,3 +10,23 @@ THEN I am prompted to enter the intern’s name, ID, email, and school, and I am
 WHEN I decide to finish building my team
 THEN I exit the application, and the HTML is generated
 */
+
+const render = require('./src/page-template.js');
+const fs = require('fs');
+const path = require('path');
+
+const OUTPUT_DIR = path.resolve(__dirname, 'dist');
+const outputPath = path.join(OUTPUT_DIR, 'index.html');
+
+const team = [
+    {
+        name:
+        id:
+        email:
+        role:
+    }
+]
+
+
+fs.writeFileSync(outputPath, render(team), 'utf-8');
+console.log(render(team));
