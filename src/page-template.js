@@ -1,6 +1,20 @@
 const generateTeam = team => {
-    
+
 }
+
+const generateManager = manager => {
+    return `
+        <h2 class="card-title">${manager.getName()}</h2>
+        <ul class="list-group">
+                <li class="list-group-item">ID: ${manager.getId()}</li>
+                <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+                <li class="list-group-item">Office number: ${manager.getOfficeNumber()}</li>
+        </ul>
+        `;
+
+    const htmlArr = [];
+    return htmlArr.join("");
+};
 
 module.exports = team => {
     return `
