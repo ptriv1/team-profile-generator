@@ -18,12 +18,11 @@ const path = require('path');
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const inquirer = require('inquirer');
 
 const OUTPUT_DIR = path.resolve(__dirname, 'dist');
 const outputPath = path.join(OUTPUT_DIR, 'index.html');
 
-const team = [];
+const team = [''];
 const idArray = [];
 
 function writeFile(team) {
@@ -61,11 +60,12 @@ function createTeam() {
             name: "memberChoice",
             message: "Which type would you like to enter?",
             choices: [
-                "Engineer", "Intern", 
+                "Engineer", 
+                "Intern", 
                 "I'm done entering my team",
             ],
         },
-    ]);
+    ])
     .then(userChoice => {
         switch (userChoice.memberChoice) {
             case "Engineer":
@@ -81,4 +81,4 @@ function createTeam() {
 }
 
 
-init()
+init();

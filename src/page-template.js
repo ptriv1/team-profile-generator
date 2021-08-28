@@ -42,7 +42,7 @@ htmlArr.push(
         .map((manager) => generateManager(manager))
         .join("")
     );
-    return htmlArr.join("");
+    
 
 htmlArr.push(
         team
@@ -50,7 +50,7 @@ htmlArr.push(
         .map((engineer) => generateEngineer(engineer))
         .join("")
     );
-    return htmlArr.join("");
+    
 
 htmlArr.push(
         team
