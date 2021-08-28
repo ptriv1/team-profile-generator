@@ -13,23 +13,72 @@ THEN I exit the application, and the HTML is generated
 
 const render = require('./src/page-template.js');
 const fs = require('fs');
+const inquirer = require('inquirer');
 const path = require('path');
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const inquirer = require('inquirer');
 
 const OUTPUT_DIR = path.resolve(__dirname, 'dist');
 const outputPath = path.join(OUTPUT_DIR, 'index.html');
 
-const team = [
-    {
-        name:
-        id:
-        email:
-        role:
-    }
-]
+const team = [];
+const idArray = [];
+
+function writeFile(team) {
+    fs.writeFileSync(outputPath, render(team), 'utf-8'); 
+}
 
 
-fs.writeFileSync(outputPath, render(team), 'utf-8');
-console.log(render(team));
+function init() {
+    // inquirer
+    inquirer.prompt ([
+        {
+            type: "input",
+            name: "managerName", 
+            message: "What is the team manager's name?",
+            validate: answer => {
+                if (answer !== "") {
+                    return true;
+                }
+                return "Please enter a manager name.";
+            }
+        }
+    ])
+    .then(answers => {
+        const manager = new Manager(answers.managerName)
+        team.push(manager);
+        writeFile(team);
+        createTeam();
+    });
+}
+
+function createTeam() {
+    inquirer.prompt([
+        {
+            type: "list", 
+            name: "memberChoice",
+            message: "Which type would you like to enter?",
+            choices: [
+                "Engineer", "Intern", 
+                "I'm done entering my team",
+            ],
+        },
+    ]);
+    .then(userChoice => {
+        switch (userChoice.memberChoice) {
+            case "Engineer":
+                addEngineer();
+                break;
+            case "Intern":
+                addIntern();
+                break;
+            default:
+                buildTeam();
+        }
+    });
+}
+
+
+init()
