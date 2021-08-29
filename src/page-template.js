@@ -1,6 +1,6 @@
 const generateTeam = team => {
 
-}
+
 
 const generateManager = manager => {
     return `
@@ -59,7 +59,7 @@ htmlArr.push(
         .join("")
     );
     return htmlArr.join("");
-
+}
 
 module.exports = team => {
     return `
