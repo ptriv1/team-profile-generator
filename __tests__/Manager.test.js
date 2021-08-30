@@ -9,6 +9,7 @@ describe("Manager", () => {
     test("Can get role via getRole()", () => {
         const value = "Manager";
         const e = new Manager(value);
+        console.log(`getRole: ${e.getRole()}: ${value}`);
         expect(e.getRole()).toBe(value);
     });
 });
