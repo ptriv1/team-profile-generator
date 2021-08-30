@@ -36,6 +36,7 @@ const generateIntern = intern => {
 };
 
 const htmlArr = [];
+console.log(team);
 htmlArr.push(
         team
         .filter((employee) => employee.getRole() === 'Manager')

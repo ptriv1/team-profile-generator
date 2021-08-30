@@ -28,4 +28,10 @@ describe("Employee", () => {
         const e = new Employee(value);
         expect(e.getName()).toBe(value);
     });
+
+    test("Can get role via getRole()", () => {
+        const value = "Employee";
+        const e = new Employee(value);
+        expect(e.getRole()).toBe(value);
+    });
 });
