@@ -46,7 +46,7 @@ function init() {
         }
     ])
     .then(answers => {
-        const manager = new Manager(answers.managerName)
+        const manager = new Manager(answers.managerName);
         team.push(manager);
         writeFile(team);
         createTeam();
