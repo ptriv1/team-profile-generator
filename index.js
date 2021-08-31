@@ -75,5 +75,25 @@ function createTeam() {
     });
 }
 
+function addEngineer() {
+    inquirer.prompt ([
+        {
+            type: "input",
+            name: "engineerName",
+            message: "What is the engineer's name?"
+            validate: answer => {
+                if (answer !== "") {
+                    return true;
+                }
+                return "Please enter an engineer name.";
+            }
+        }
+    ])
+    .then(answers => {
+        const engineer = new Engineer(answers.engineerName);
+        team.push(engineer);
+    });
+}
+
 
 init();
