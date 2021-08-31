@@ -43,7 +43,7 @@ function init() {
     .then(answers => {
         const manager = new Manager(answers.managerName);
         team.push(manager);
-        writeFile(team);
+        // writeFile(team);
         createTeam();
     });
 }
@@ -80,7 +80,7 @@ function addEngineer() {
         {
             type: "input",
             name: "engineerName",
-            message: "What is the engineer's name?"
+            message: "What is the engineer's name?",
             validate: answer => {
                 if (answer !== "") {
                     return true;
@@ -92,6 +92,7 @@ function addEngineer() {
     .then(answers => {
         const engineer = new Engineer(answers.engineerName);
         team.push(engineer);
+        createTeam();
     });
 }
 
