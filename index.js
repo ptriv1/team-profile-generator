@@ -38,10 +38,43 @@ function init() {
                 }
                 return "Please enter a manager name.";
             }
+        },
+        {
+            type: "input",
+            id: "managerId",
+            message: "What is the manager's ID?",
+            validate: answer => {
+                if (answer !== "") {
+                    return true;
+                }
+                return "Please enter a manager ID.";
+            },
+        },
+        {
+            type: "input",
+            email: "managerEmail",
+            message: "What is the manager's email?",
+            validate: answer => {
+                if (answer !== "") {
+                    return true;
+                }
+                return "Please enter a manager email.";
+            }, 
+        },
+        {
+            type: "input",
+            office: "managerOffice",
+            message: "What is the manager's office number?",
+            validate: answer => {
+                if (answer !== "") {
+                    return true;
+                }
+                return "Please enter a manager office number.";
+            }
         }
     ])
     .then(answers => {
-        const manager = new Manager(answers.managerName);
+        const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOffice);
         team.push(manager);
         // writeFile(team);
         createTeam();
@@ -87,6 +120,39 @@ function addEngineer() {
                 }
                 return "Please enter an engineer name.";
             }
+        },
+        {
+            type: "input",
+            id: "engineerId",
+            message: "What is the engineer's ID?",
+            validate: answer => {
+                if (answer !== "") {
+                    return true;
+                }
+                return "Please enter an engineer ID.";
+            },
+        },
+        {
+            type: "input",
+            email: "engineerEmail",
+            message: "What is the engineer's email?",
+            validate: answer => {
+                if (answer !== "") {
+                    return true;
+                }
+                return "Please enter an engineer email.";
+            }
+        },
+        {
+            type: "input",
+            github: "engineerGithub",
+            message: "What is the engineer's GitHub username?",
+            validate: answer => {
+                if (answer !== "") {
+                    return true;
+                }
+                return "Please enter an engineer's GitHub username.";
+            }
         }
     ])
     .then(answers => {
@@ -94,6 +160,60 @@ function addEngineer() {
         team.push(engineer);
         createTeam();
     });
+}
+
+function addIntern() {
+    inquirer.prompt ([
+        {
+            type: "input",
+            name: "internName",
+            message: "What is the intern's name?",
+            validate: answer => {
+                if (answer !== "") {
+                    return true;
+                }
+                return "Please enter an intern name.";
+            }
+        },
+        {
+            type: "input",
+            id: "internId",
+            message: "What is the intern's ID?",
+            validate: answer => {
+                if (answer !== "") {
+                    return true;
+                }
+                return "Please enter an intern ID.";
+            }
+        }, 
+        {
+            type: "input",
+            email: "internEmail",
+            message: "What is the intern's email?",
+            validate: answer => {
+                if (answer !== "") {
+                    return true;
+                }
+                return "Please enter an intern email.";
+            }
+        }, 
+        {
+            type: "input",
+            school: "internSchool",
+            message: "What is the intern's college?",
+            validate: answer => {
+                if (answer !== "") {
+                    return true;
+                }
+                return "Please enter an intern school.";
+            }
+        }
+    ])
+    .then(answers => {
+        const intern = new Intern(answers.internName);
+        team.push(intern);
+        createTeam();
+    })
 }
 
 
