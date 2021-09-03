@@ -4,34 +4,40 @@ const generateTeam = team => {
 
 const generateManager = manager => {
     return `
+        <div class="manager-section">
         <h2 class="card-title">${manager.getName()}</h2>
         <ul class="list-group">
                 <li class="list-group-item">ID: ${manager.getId()}</li>
                 <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
                 <li class="list-group-item">Office number: ${manager.getOfficeNumber()}</li>
         </ul>
+        </div>
         `;
 };
 
 const generateEngineer = engineer => {
     return `
+        <div class="engineer-section">
         <h2 class="card-title">${engineer.getName()}</h2>
         <ul class="list-group">
                 <li class="list-group-item">ID: ${engineer.getId()}</li>
                 <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
                 <li class="list-group-item">GitHub: ${engineer.getGithub}</li>
         </ul>
+        </div>
         `;
 };
 
 const generateIntern = intern => {
     return `
+        <div class="intern-section">
         <h2 class="card-title">${intern.getName()}</h2>
         <ul class="list-group">
                 <li class="list-group-item">ID: ${intern.getId()}</li>
                 <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
                 <li class="list-group-item">School: ${intern.getSchool()}</li>
         </ul>
+        </div>
         `;
 };
 

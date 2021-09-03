@@ -157,7 +157,7 @@ function addEngineer() {
         }
     ])
     .then(answers => {
-        const engineer = new Engineer(answers.engineerName);
+        const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
         team.push(engineer);
         createTeam();
     });
@@ -211,7 +211,7 @@ function addIntern() {
         }
     ])
     .then(answers => {
-        const intern = new Intern(answers.internName);
+        const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
         team.push(intern);
         createTeam();
     })
