@@ -83,6 +83,13 @@ module.exports = team => {
 </head>
 
 <body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 jumbotron mb-3 team-heading">
+                <h1 class="text-center">Team Profiles</h1>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="team-area col-12 d-flex justify-content-center">
