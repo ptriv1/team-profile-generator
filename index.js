@@ -18,7 +18,6 @@ const OUTPUT_DIR = path.resolve(__dirname, 'dist');
 const outputPath = path.join(OUTPUT_DIR, 'index.html');
 
 const team = [];
-const idArray = [];
 
 function writeFile(team) {
     fs.writeFileSync(outputPath, render(team), 'utf-8'); 
@@ -36,7 +35,7 @@ function init() {
                 if (answer !== "") {
                     return true;
                 }
-                return "Please enter a manager name.";
+                return "Please enter a manager's name.";
             }
         },
         {
@@ -47,7 +46,7 @@ function init() {
                 if (answer !== "") {
                     return true;
                 }
-                return "Please enter a manager ID.";
+                return "Please enter a manager's ID.";
             },
         },
         {
@@ -58,7 +57,7 @@ function init() {
                 if (answer !== "") {
                     return true;
                 }
-                return "Please enter a manager email.";
+                return "Please enter a manager's email.";
             }, 
         },
         {
@@ -69,7 +68,7 @@ function init() {
                 if (answer !== "") {
                     return true;
                 }
-                return "Please enter a manager office number.";
+                return "Please enter a manager's office number.";
             }
         }
     ])
@@ -119,7 +118,7 @@ function addEngineer() {
                 if (answer !== "") {
                     return true;
                 }
-                return "Please enter an engineer name.";
+                return "Please enter an engineer's name.";
             }
         },
         {
@@ -130,7 +129,7 @@ function addEngineer() {
                 if (answer !== "") {
                     return true;
                 }
-                return "Please enter an engineer ID.";
+                return "Please enter an engineer's ID.";
             },
         },
         {
@@ -141,7 +140,7 @@ function addEngineer() {
                 if (answer !== "") {
                     return true;
                 }
-                return "Please enter an engineer email.";
+                return "Please enter an engineer's email address.";
             }
         },
         {
@@ -173,7 +172,7 @@ function addIntern() {
                 if (answer !== "") {
                     return true;
                 }
-                return "Please enter an intern name.";
+                return "Please enter an intern's name.";
             }
         },
         {
@@ -184,7 +183,7 @@ function addIntern() {
                 if (answer !== "") {
                     return true;
                 }
-                return "Please enter an intern ID.";
+                return "Please enter an intern's ID.";
             }
         }, 
         {
@@ -195,7 +194,7 @@ function addIntern() {
                 if (answer !== "") {
                     return true;
                 }
-                return "Please enter an intern email.";
+                return "Please enter an intern's email.";
             }
         }, 
         {
@@ -206,7 +205,7 @@ function addIntern() {
                 if (answer !== "") {
                     return true;
                 }
-                return "Please enter an intern school.";
+                return "Please enter an intern's school.";
             }
         }
     ])

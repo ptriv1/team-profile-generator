@@ -1,8 +1,6 @@
 const generateTeam = team => {
 
-
-
-const generateManager = manager => {
+const createManager = manager => {
     return `
         <div class="manager-section">
         <h2 class="card-title">${manager.getName()}</h2>
@@ -15,20 +13,20 @@ const generateManager = manager => {
         `;
 };
 
-const generateEngineer = engineer => {
+const createEngineer = engineer => {
     return `
         <div class="engineer-section">
         <h2 class="card-title">${engineer.getName()}</h2>
         <ul class="list-group">
                 <li class="list-group-item">ID: ${engineer.getId()}</li>
                 <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-                <li class="list-group-item">GitHub: ${engineer.getGithub}</li>
+                <li class="list-group-item">GitHub: ${engineer.getGithub()}</li>
         </ul>
         </div>
         `;
 };
 
-const generateIntern = intern => {
+const createIntern = intern => {
     return `
         <div class="intern-section">
         <h2 class="card-title">${intern.getName()}</h2>
@@ -41,31 +39,31 @@ const generateIntern = intern => {
         `;
 };
 
-const htmlArr = [];
+const htmlArray = [];
 console.log(team);
-htmlArr.push(
+htmlArray.push(
         team
         .filter((employee) => employee.getRole() === 'Manager')
-        .map((manager) => generateManager(manager))
+        .map((manager) => createManager(manager))
         .join("")
     );
     
 
-htmlArr.push(
+htmlArray.push(
         team
         .filter((employee) => employee.getRole() === 'Engineer')
-        .map((engineer) => generateEngineer(engineer))
+        .map((engineer) => createEngineer(engineer))
         .join("")
     );
     
 
-htmlArr.push(
+htmlArray.push(
         team
         .filter((employee) => employee.getRole() === 'Intern')
-        .map((intern) => generateIntern(intern))
+        .map((intern) => createIntern(intern))
         .join("")
     );
-    return htmlArr.join("");
+    return htmlArray.join("");
 }
 
 module.exports = team => {
@@ -77,7 +75,7 @@ module.exports = team => {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>My Team</title>
+    <title>Team Profiles</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
@@ -88,7 +86,7 @@ module.exports = team => {
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 jumbotron mb-3 team-heading">
-                <h1 class="text-center">My Team</h1>
+                <h1 class="text-center">Team Profiles</h1>
             </div>
         </div>
     </div>
