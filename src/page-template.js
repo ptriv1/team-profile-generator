@@ -20,7 +20,7 @@ const createEngineer = engineer => {
         <ul class="employee-list">
                 <li class="list-item">ID: ${engineer.getId()}</li>
                 <li class="list-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-                <li class="list-item">GitHub: <a href="http://github.com/${engineer.getGithub()}">${engineer.getName()}</a></li>
+                <li class="list-item">GitHub: <a href="http://github.com/${engineer.getGithub()}" target="_blank">${engineer.getName()}</a></li>
         </ul>
         </div>
         `;
