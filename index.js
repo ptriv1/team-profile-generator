@@ -17,7 +17,7 @@ const Intern = require("./lib/Intern");
 const OUTPUT_DIR = path.resolve(__dirname, 'dist');
 const outputPath = path.join(OUTPUT_DIR, 'index.html');
 
-const team = [''];
+const team = [];
 const idArray = [];
 
 function writeFile(team) {
@@ -41,7 +41,7 @@ function init() {
         },
         {
             type: "input",
-            id: "managerId",
+            name: "managerId",
             message: "What is the manager's ID?",
             validate: answer => {
                 if (answer !== "") {
@@ -52,7 +52,7 @@ function init() {
         },
         {
             type: "input",
-            email: "managerEmail",
+            name: "managerEmail",
             message: "What is the manager's email?",
             validate: answer => {
                 if (answer !== "") {
@@ -63,7 +63,7 @@ function init() {
         },
         {
             type: "input",
-            office: "managerOffice",
+            name: "managerOffice",
             message: "What is the manager's office number?",
             validate: answer => {
                 if (answer !== "") {
@@ -95,6 +95,7 @@ function createTeam() {
         },
     ])
     .then(userChoice => {
+        console.log(userChoice.memberChoice);
         switch (userChoice.memberChoice) {
             case "Engineer":
                 addEngineer();
@@ -103,7 +104,7 @@ function createTeam() {
                 addIntern();
                 break;
             default:
-                buildTeam();
+                buildTeam(team);
         }
     });
 }
@@ -123,7 +124,7 @@ function addEngineer() {
         },
         {
             type: "input",
-            id: "engineerId",
+            name: "engineerId",
             message: "What is the engineer's ID?",
             validate: answer => {
                 if (answer !== "") {
@@ -134,7 +135,7 @@ function addEngineer() {
         },
         {
             type: "input",
-            email: "engineerEmail",
+            name: "engineerEmail",
             message: "What is the engineer's email?",
             validate: answer => {
                 if (answer !== "") {
@@ -145,7 +146,7 @@ function addEngineer() {
         },
         {
             type: "input",
-            github: "engineerGithub",
+            name: "engineerGithub",
             message: "What is the engineer's GitHub username?",
             validate: answer => {
                 if (answer !== "") {
@@ -177,7 +178,7 @@ function addIntern() {
         },
         {
             type: "input",
-            id: "internId",
+            name: "internId",
             message: "What is the intern's ID?",
             validate: answer => {
                 if (answer !== "") {
@@ -188,7 +189,7 @@ function addIntern() {
         }, 
         {
             type: "input",
-            email: "internEmail",
+            name: "internEmail",
             message: "What is the intern's email?",
             validate: answer => {
                 if (answer !== "") {
@@ -199,7 +200,7 @@ function addIntern() {
         }, 
         {
             type: "input",
-            school: "internSchool",
+            name: "internSchool",
             message: "What is the intern's college?",
             validate: answer => {
                 if (answer !== "") {
@@ -214,6 +215,10 @@ function addIntern() {
         team.push(intern);
         createTeam();
     })
+}
+
+function buildTeam(team) {
+   fs.writeFileSync(outputPath, render(team), "utf-8"); 
 }
 
 
