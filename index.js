@@ -6,7 +6,7 @@ If user selects intern, sees prompt to enter name, ID, email, and schools, and r
 When the option gets selected to finish building team, exits application and HTML generated
 */
 
-const render = require('./src/page-template.js');
+const create = require('./src/page-template.js');
 const fs = require('fs');
 const inquirer = require('inquirer');
 const path = require('path');
@@ -217,7 +217,7 @@ function addIntern() {
 }
 
 function buildTeam(team) {
-   fs.writeFileSync(outputPath, render(team), "utf-8"); 
+   fs.writeFileSync(outputPath, create(team), "utf-8");  
 }
 
 

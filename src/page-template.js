@@ -4,11 +4,11 @@ const createManager = manager => {
     return `
         <div class="manager-section">
         <h2 class="card-title">${manager.getName()}</h2>
-        <ul class="employee-list">
+            <ul class="employee-list">
                 <li class="list-item">ID: ${manager.getId()}</li>
                 <li class="list-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
                 <li class="list-item">Office number: ${manager.getOfficeNumber()}</li>
-        </ul>
+            </ul>
         </div>
         `;
 };
@@ -17,11 +17,11 @@ const createEngineer = engineer => {
     return `
         <div class="engineer-section">
         <h2 class="card-title">${engineer.getName()}</h2>
-        <ul class="employee-list">
+            <ul class="employee-list">
                 <li class="list-item">ID: ${engineer.getId()}</li>
                 <li class="list-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
                 <li class="list-item">GitHub: <a href="http://github.com/${engineer.getGithub()}" target="_blank">${engineer.getName()}</a></li>
-        </ul>
+            </ul>
         </div>
         `;
 };
@@ -30,17 +30,17 @@ const createIntern = intern => {
     return `
         <div class="intern-section">
         <h2 class="card-title">${intern.getName()}</h2>
-        <ul class="employee-list">
+            <ul class="employee-list">
                 <li class="list-item">ID: ${intern.getId()}</li>
                 <li class="list-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
                 <li class="list-item">School: ${intern.getSchool()}</li>
-        </ul>
+            </ul>
         </div>
         `;
 };
 
 const htmlArray = [];
-console.log(team);
+
 htmlArray.push(
         team
         .filter((employee) => employee.getRole() === 'Manager')
@@ -48,7 +48,6 @@ htmlArray.push(
         .join("")
     );
     
-
 htmlArray.push(
         team
         .filter((employee) => employee.getRole() === 'Engineer')
@@ -56,13 +55,13 @@ htmlArray.push(
         .join("")
     );
     
-
 htmlArray.push(
         team
         .filter((employee) => employee.getRole() === 'Intern')
         .map((intern) => createIntern(intern))
         .join("")
     );
+
     return htmlArray.join("");
 }
 
@@ -76,23 +75,20 @@ module.exports = team => {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Team Profiles</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/c502137733.js"></script>
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="page-heading">
         <div class="row">
-            <div class="col-12 jumbotron mb-3 team-heading">
+            <div class="team-heading">
                 <h1 class="text-center">Team Profiles</h1>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <div class="team-area col-12 d-flex justify-content-center">
+            <div class="justify-content">
                 ${generateTeam(team)}
             </div>
         </div>
