@@ -12,4 +12,5 @@ describe("Intern", () => {
         const e = new Intern(value);
         expect(e.getRole()).toBe(value);
     });
+
 });
